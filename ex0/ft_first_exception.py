@@ -9,11 +9,12 @@ def check_temperature(temp_str: int) -> None:
         print(f"\033[1;36mTemperature {temp_str} is perfect for "
               f"plant!\n\033[0m")
 
+
 def test_temperature_input(temp_str: str) -> None:
     print(f"Testing temperature: {temp_str}")
     try:
         temp = int(temp_str)
-    except:
+    except ValueError:
         print(f"\033[0;31mError\033[0m: '{temp_str}' is not a valid number\n")
         return
     try:
