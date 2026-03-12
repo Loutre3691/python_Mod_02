@@ -1,23 +1,26 @@
-def check_temperature(temp_str: int) -> None:    
+def check_temperature(temp_str: int) -> None:
     if temp_str > 40:
-        raise print(f"\033[0;31mError\n\033[0m: {temp_str}°C is too hot for plants (max 40°C")
+        raise ValueError(f"\033[0;31mError\033[0m: {temp_str}°C is too hot for"
+                         f" plants (max 40°C)\n")
     elif temp_str < 0:
-        raise print(f"\033[0;31mError\n\033[0m: {temp_str}°C is too cold for plqnts (min 0°C)")
+        raise ValueError(f"\033[0;31mError\033[0m: {temp_str}°C is too cold "
+                         f"for plants (min 0°C)\n")
     else:
-        print(f"\033[1;36mTemperature {temp_str} is perfect for plant!\033[0m")
+        print(f"\033[1;36mTemperature {temp_str} is perfect for "
+              f"plant!\n\033[0m")
 
 def test_temperature_input(temp_str: str) -> None:
     print(f"Testing temperature: {temp_str}")
     try:
-       temp = int(temp_str)
+        temp = int(temp_str)
     except:
-        print(f"\033[0;31mError\033[0m: '{temp_str}' is not a valid number")
+        print(f"\033[0;31mError\033[0m: '{temp_str}' is not a valid number\n")
         return
     try:
-        check_temperature(temp_str)
-    except:
-        print("\033[1;31mERROR\n\033[0m")
-        return
+        check_temperature(temp)
+    except ValueError as e:
+        print(e)
+
 
 # def test_temperature_input() -> None:
 if __name__ == "__main__":
