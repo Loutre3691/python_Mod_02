@@ -16,17 +16,17 @@ def water_plants(plant_list) -> None:
 
 
 def test_watering_system() -> None:
-        print("\033[0;34m💧Testing normal watering...💧\033[0m")
-        print("🔓 Opening watering system")
-        good_plants = ["tomato 🍅", "lettuce 🥬", "carrots 🥕"]
-        water_plants(good_plants)
-        print("\033[0;34mWatering completed successfully! ✅\033[0m\n")
+    print("\033[0;34m💧Testing normal watering...💧\033[0m")
+    print("🔓 Opening watering system")
+    good_plants = ["tomato 🍅", "lettuce 🥬", "carrots 🥕"]
+    water_plants(good_plants)
+    print("\033[0;34mWatering completed successfully! ✅\033[0m\n")
 
-        print(" \033[0;31m\nTesting with error...\033[0m💥")
-        print("🔓 Opening watering system")
-        bad_plants = ["tomato 🍅", "None", "carrots 🥕"]
-        water_plants(bad_plants)
-        print("\nCleanup always happens, even with errors!\n")
+    print(" \033[0;31m\nTesting with error...\033[0m💥")
+    print("🔓 Opening watering system")
+    bad_plants = ["tomato 🍅", "None", "carrots 🥕"]
+    water_plants(bad_plants)
+    print("\nCleanup always happens, even with errors!\n")
 
 
 if __name__ == "__main__":
