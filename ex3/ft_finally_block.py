@@ -6,8 +6,8 @@ def water_plants(plant_list) -> None:
     try:
         for plant in plant_list:
             if plant in ("None", ""):
-                raise WaterException("Error: Cannot water None - "
-                                     "invalid plant!")
+                raise WaterException("\033[0;31mError: Cannot water None - "
+                                     "invalid plant!\033[0m")
             print(f"Watering {plant}")
     except WaterException as e:
         print(e)
