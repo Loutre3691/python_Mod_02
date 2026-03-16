@@ -3,45 +3,46 @@ class WaterException(Exception):
 
 
 def water_plants(plant_list) -> None:
-    print("🔓 Opening watering system")
     try:
         for plant in plant_list:
-            try:
-                test_watering_system(plant)
-            except WaterException as e:
-                print(e)
+            if plant in ("None", ""):
+                raise WaterException("Error: Cannot water None - "
+                                     "invalid plant!")
+            print(f"Watering {plant}")
+    except WaterException as e:
+        print(e)
     finally:
         print("🔒 Closing watering system (cleanup)")
 
 
-def test_watering_system(plant: str) -> None:
-   if plant
-   print("💧 \033[0;34mTesting normal watering\033[0m 💧")
-        # print(f"Watering {plant}")
-    
-    
-    print(" \033[0;31mTesting with error...\033[0m💥\n")
-   raise WaterException ("\033[031m Cleanup always happens, even with "
-                                 "errors!\033[0m \n")
+def test_watering_system() -> None:
+        print("\033[0;34m💧Testing normal watering...💧\033[0m")
+        print("🔓 Opening watering system")
+        good_plants = ["tomato 🍅", "lettuce 🥬", "carrots 🥕"]
+        water_plants(good_plants)
+        print("\033[0;34mWatering completed successfully! ✅\033[0m\n")
 
+        print(" \033[0;31m\nTesting with error...\033[0m💥")
+        print("🔓 Opening watering system")
+        bad_plants = ["tomato 🍅", "None", "carrots 🥕"]
+        water_plants(bad_plants)
+        print("\nCleanup always happens, even with errors!\n")
 
 
 if __name__ == "__main__":
     print("\033[1;32m\n=== Garden Watering System ===\n\033[0m")
-    plant_list = ["tomato 🍅", "lettuce 🥬", "carrots 🥕"]
-    water_plants(plant_list)
-    AttributeError("Cleanup always happens, even with errors!")
-    print("\033[092m\nWatering completed successfully!\033[0m ✅\n")
+    test_watering_system()
 
-# block finally pour nettoyer qune erreur se produise ou pas
-# ecrire une fonction water_plants(plant_list):
-#     ouvre un system darosage (just print)
-#     passe en revu chaque plante de la liste
-#     arrose chaque plant(JUST PRINT)
-#     ferme toujours le system darrosage (FINALLY) block
-#      gere les erreur si le nom dune plante est invalide
+# finally block to clean up whether an error happens or not
 #
-# creer une fonction test_watering_system()
-#   arrosage normal avec la bonne list de plant
-#   arrosage avec une mauvaise liste de plant (a cause dune erreur)
-#   utilise try / except/ finally structure
+# write a function water_plants(plant_list):
+#     open a watering system (just print)
+#     go through each plant in the list
+#     water each plant (just print)
+#     always close the watering system (finally block)
+#     handle errors if a plant name is invalid
+#
+# create a function test_watering_system()
+#     normal watering with a good plant list
+#     watering with a bad plant list (causes an error)
+#     use try / except / finally structure
